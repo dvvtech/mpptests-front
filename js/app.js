@@ -394,8 +394,9 @@
     renderResults() {
       this.refs.workspaceLayout.classList.add('has-results');
       this.refs.resultsPanel.classList.remove('hidden');
-      this.refs.resultsImage.src = CanvasModule.getExportDataUrl();
-      this.refs.resultsImage.style.display = 'block';
+      // Не отображать раскраску как изображение в заголовке результатов
+      this.refs.resultsImage.style.display = 'none';
+      // this.refs.resultsImage.src = CanvasModule.getExportDataUrl();
       this.refs.resultsStatus.textContent = this.state.analysis && this.state.analysis.source === 'demo' ? 'демо' : 'готово';
       this.refs.resultMain.textContent = this.state.analysis.main_characteristic;
       Statistics.renderChart(this.refs.statisticsChart, this.state.statistics);

@@ -214,6 +214,11 @@ select {
   background: var(--test-bg);
 }
 
+/* Scroll wrapper for test selector */
+.image-selector-scroll {
+  scrollbar-width: thin;
+}
+
 .image-preview img {
   max-width: 100%;
   max-height: 100%;
@@ -440,7 +445,7 @@ select {
 }
 
 .results-image {
-  display: block;
+  display: none;
   width: 100%;
   border-radius: 20px;
   background: var(--test-bg);
@@ -515,7 +520,7 @@ select {
 
 @media (min-width: 1100px) {
   .workspace-layout.has-results {
-    grid-template-columns: minmax(280px, 0.72fr) minmax(560px, 1.28fr);
+    grid-template-columns: 1fr 420px;
   }
 }
 

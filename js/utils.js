@@ -25,7 +25,7 @@
       { name: 'Черный', hex: '#000000' },
       { name: 'Белый', hex: '#ffffff' }
     ],
-    backgroundColor: '#9ca3af'
+    backgroundColor: '#EDEDED'
   };
 
   function clamp(value, min, max) {

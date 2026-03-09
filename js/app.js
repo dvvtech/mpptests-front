@@ -395,6 +395,7 @@
       this.refs.workspaceLayout.classList.add('has-results');
       this.refs.resultsPanel.classList.remove('hidden');
       this.refs.resultsImage.src = CanvasModule.getExportDataUrl();
+      this.refs.resultsImage.style.display = 'block';
       this.refs.resultsStatus.textContent = this.state.analysis && this.state.analysis.source === 'demo' ? 'демо' : 'готово';
       this.refs.resultMain.textContent = this.state.analysis.main_characteristic;
       Statistics.renderChart(this.refs.statisticsChart, this.state.statistics);
@@ -423,6 +424,7 @@
       this.refs.resultStrengths.innerHTML = '';
       this.refs.resultRecommendations.innerHTML = '';
       this.refs.resultsImage.removeAttribute('src');
+      this.refs.resultsImage.style.display = 'none';
     },
 
     async handleSendResults() {

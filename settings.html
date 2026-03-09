@@ -1,20 +1,20 @@
-<div class="mx-auto flex h-full w-full max-w-6xl items-center justify-center">
-  <div class="grid w-full gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
-    <section class="surface-panel relative overflow-hidden p-6 md:p-8">
+<div class="settings-layout mx-auto flex h-full w-full max-w-6xl items-stretch justify-center py-1">
+  <div class="settings-grid grid h-full w-full gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
+    <section class="surface-panel relative flex h-full min-h-0 flex-col overflow-hidden p-5 md:p-6">
       <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-500 to-emerald-500"></div>
       <div class="max-w-2xl">
         <p class="eyebrow mb-3">Подготовка к анализу</p>
-        <h1 class="font-display text-3xl leading-tight text-slate-900 md:text-5xl">
+        <h1 class="font-display text-3xl leading-tight text-slate-900 md:text-4xl xl:text-[2.7rem]">
           Медико-педагого-психологические тесты Яшара Ибадова
         </h1>
-        <p class="mt-4 max-w-xl text-sm leading-7 text-slate-600 md:text-base">
+        <p class="mt-3 max-w-xl text-sm leading-6 text-slate-600 md:text-base">
           Для анализа тестов требуется заполнить поля, выбрать изображение и перейти к раскрашиванию.
         </p>
       </div>
 
-      <div id="settings-error" class="mt-6 hidden rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700"></div>
+      <div id="settings-error" class="mt-4 hidden rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700"></div>
 
-      <div class="mt-6 grid gap-5 md:grid-cols-2">
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
         <label class="field-card">
           <span class="field-label">Пол</span>
           <select id="gender" class="field-input">
@@ -30,8 +30,8 @@
         </label>
       </div>
 
-      <div class="mt-6 rounded-3xl border border-slate-200/80 bg-white/80 p-5 shadow-sm">
-        <div class="mb-4 flex items-center justify-between gap-3">
+      <div class="mt-4 flex min-h-0 flex-1 flex-col rounded-3xl border border-slate-200/80 bg-white/80 p-4 shadow-sm md:p-5">
+        <div class="mb-3 flex items-center justify-between gap-3">
           <div>
             <h2 class="text-xl font-semibold text-slate-900">Выбор теста</h2>
             <p class="mt-1 text-sm text-slate-500">Превью загружаются по мере появления на экране.</p>
@@ -41,7 +41,7 @@
         <div class="grid grid-cols-2 gap-3 md:gap-4" id="image-selector"></div>
       </div>
 
-      <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
         <div class="rounded-2xl bg-slate-100/80 px-4 py-3 text-sm text-slate-600">
           Данные формы сохраняются локально и восстанавливаются при следующем открытии.
         </div>
@@ -52,10 +52,10 @@
       </div>
     </section>
 
-    <aside class="surface-panel flex flex-col justify-between p-6 md:p-8">
+    <aside class="surface-panel grid h-full min-h-0 grid-rows-[auto_1fr] gap-4 p-5 md:p-6">
       <div>
         <p class="eyebrow mb-3">Как это работает</p>
-        <div class="space-y-4 text-sm leading-7 text-slate-600">
+        <div class="space-y-3 text-sm leading-6 text-slate-600">
           <div class="rounded-2xl bg-slate-100/80 p-4">
             <p class="font-semibold text-slate-900">1. Заполните профиль</p>
             <p class="mt-1">Пол, дата рождения и выбранный тест нужны для корректного анализа результатов.</p>
@@ -71,7 +71,7 @@
         </div>
       </div>
 
-      <div class="mt-6 rounded-3xl bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.18),_transparent_52%),linear-gradient(135deg,#f8fafc,_#e2e8f0)] p-5 text-sm leading-7 text-slate-700">
+      <div class="self-end rounded-3xl bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.18),_transparent_52%),linear-gradient(135deg,#f8fafc,_#e2e8f0)] p-5 text-sm leading-6 text-slate-700">
         <p class="font-semibold text-slate-900">Подсказка</p>
         <p class="mt-2">Фон прозрачных PNG автоматически выравнивается в мягкий серый оттенок, чтобы линии теста оставались хорошо читаемыми.</p>
       </div>

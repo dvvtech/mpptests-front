@@ -63,6 +63,7 @@
       this.refs.clearButton = document.getElementById('clear-button');
       this.refs.analyzeButton = document.getElementById('analyze-button');
       this.refs.resultsPanel = document.getElementById('results-panel');
+      this.refs.workspaceLayout = document.getElementById('workspace-layout');
       this.refs.resultsImage = document.getElementById('results-image');
       this.refs.resultsStatus = document.getElementById('results-status');
       this.refs.statisticsChart = document.getElementById('statistics-chart');
@@ -391,6 +392,7 @@
     },
 
     renderResults() {
+      this.refs.workspaceLayout.classList.add('has-results');
       this.refs.resultsPanel.classList.remove('hidden');
       this.refs.resultsImage.src = CanvasModule.getExportDataUrl();
       this.refs.resultsStatus.textContent = this.state.analysis && this.state.analysis.source === 'demo' ? 'демо' : 'готово';
@@ -414,6 +416,7 @@
     hideResults() {
       this.state.analysis = null;
       this.state.statistics = [];
+      this.refs.workspaceLayout.classList.remove('has-results');
       this.refs.resultsPanel.classList.add('hidden');
       this.refs.statisticsChart.innerHTML = '';
       this.refs.resultMain.textContent = '';

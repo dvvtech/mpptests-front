@@ -1,18 +1,18 @@
 <div class="flex h-full flex-col gap-4">
-  <section class="surface-panel flex-none p-3 md:p-4">
-    <div class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
-      <div class="flex flex-wrap items-center gap-2 md:gap-3">
-        <button id="home-button" type="button" class="tool-button">
+  <section class="surface-panel toolbar-panel flex-none p-2.5 md:p-4">
+    <div class="toolbar-stack">
+      <div class="toolbar-row toolbar-row-primary">
+        <button id="home-button" type="button" class="tool-button toolbar-action-button">
           <i class="fas fa-house"></i>
-          <span>Главная</span>
+          <span class="toolbar-button-text">Главная</span>
         </button>
 
-        <div class="toolbar-chip toolbar-chip-wide">
+        <div class="toolbar-chip toolbar-chip-wide toolbar-palette-chip">
           <span class="toolbar-label">Цвета</span>
           <div id="color-palette" class="flex flex-wrap gap-2"></div>
         </div>
 
-        <label class="toolbar-chip toolbar-chip-wide">
+        <label class="toolbar-chip toolbar-chip-wide toolbar-brush-chip">
           <span class="toolbar-label">Кисть</span>
           <div class="flex min-w-[180px] items-center gap-3">
             <input id="brush-size" class="accent-sky-500" type="range" min="4" max="48" step="2" value="18">
@@ -21,7 +21,7 @@
         </label>
       </div>
 
-      <div class="flex flex-wrap items-center gap-2 md:gap-3">
+      <div class="toolbar-row toolbar-row-secondary">
         <div class="toolbar-chip">
           <span class="toolbar-label">Поворот</span>
           <div class="flex items-center gap-2">
@@ -56,20 +56,20 @@
           </div>
         </div>
 
-        <button id="clear-button" type="button" class="secondary-button">
+        <button id="clear-button" type="button" class="secondary-button toolbar-action-button">
           <i class="fas fa-trash-can"></i>
-          <span>Очистить</span>
+          <span class="toolbar-button-text">Очистить</span>
         </button>
-        <button id="analyze-button" type="button" class="primary-button">
+        <button id="analyze-button" type="button" class="primary-button toolbar-action-button">
           <i class="fas fa-chart-column"></i>
-          <span>Рассчитать</span>
+          <span class="toolbar-button-text">Рассчитать</span>
         </button>
       </div>
     </div>
   </section>
 
-  <section class="grid min-h-0 flex-1 gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
-    <div class="surface-panel min-h-0 p-4 md:p-5">
+  <section id="workspace-layout" class="workspace-layout grid min-h-0 flex-1 gap-4">
+    <div class="surface-panel canvas-panel min-h-0 p-4 md:p-5">
       <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div>
           <p id="selected-test-label" class="text-lg font-semibold text-slate-900">Тест не выбран</p>

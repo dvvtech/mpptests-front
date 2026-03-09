@@ -1,0 +1,80 @@
+<div class="mx-auto flex h-full w-full max-w-6xl items-center justify-center">
+  <div class="grid w-full gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+    <section class="surface-panel relative overflow-hidden p-6 md:p-8">
+      <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 via-sky-500 to-emerald-500"></div>
+      <div class="max-w-2xl">
+        <p class="eyebrow mb-3">Подготовка к анализу</p>
+        <h1 class="font-display text-3xl leading-tight text-slate-900 md:text-5xl">
+          Медико-педагого-психологические тесты Яшара Ибадова
+        </h1>
+        <p class="mt-4 max-w-xl text-sm leading-7 text-slate-600 md:text-base">
+          Для анализа тестов требуется заполнить поля, выбрать изображение и перейти к раскрашиванию.
+        </p>
+      </div>
+
+      <div id="settings-error" class="mt-6 hidden rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700"></div>
+
+      <div class="mt-6 grid gap-5 md:grid-cols-2">
+        <label class="field-card">
+          <span class="field-label">Пол</span>
+          <select id="gender" class="field-input">
+            <option value="">Выберите пол</option>
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+          </select>
+        </label>
+
+        <label class="field-card">
+          <span class="field-label">Дата рождения</span>
+          <input id="birthDate" class="field-input" type="date" max="2099-12-31">
+        </label>
+      </div>
+
+      <div class="mt-6 rounded-3xl border border-slate-200/80 bg-white/80 p-5 shadow-sm">
+        <div class="mb-4 flex items-center justify-between gap-3">
+          <div>
+            <h2 class="text-xl font-semibold text-slate-900">Выбор теста</h2>
+            <p class="mt-1 text-sm text-slate-500">Превью загружаются по мере появления на экране.</p>
+          </div>
+          <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">5 тестов</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3 md:gap-4" id="image-selector"></div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+        <div class="rounded-2xl bg-slate-100/80 px-4 py-3 text-sm text-slate-600">
+          Данные формы сохраняются локально и восстанавливаются при следующем открытии.
+        </div>
+        <button id="continue-button" type="button" class="primary-button min-w-[180px]">
+          Далее
+          <i class="fas fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+    </section>
+
+    <aside class="surface-panel flex flex-col justify-between p-6 md:p-8">
+      <div>
+        <p class="eyebrow mb-3">Как это работает</p>
+        <div class="space-y-4 text-sm leading-7 text-slate-600">
+          <div class="rounded-2xl bg-slate-100/80 p-4">
+            <p class="font-semibold text-slate-900">1. Заполните профиль</p>
+            <p class="mt-1">Пол, дата рождения и выбранный тест нужны для корректного анализа результатов.</p>
+          </div>
+          <div class="rounded-2xl bg-slate-100/80 p-4">
+            <p class="font-semibold text-slate-900">2. Раскрасьте изображение</p>
+            <p class="mt-1">Используйте палитру, кисть, поворот, масштаб и режим перемещения для точной работы.</p>
+          </div>
+          <div class="rounded-2xl bg-slate-100/80 p-4">
+            <p class="font-semibold text-slate-900">3. Получите интерпретацию</p>
+            <p class="mt-1">После расчета приложение покажет диаграмму цветов и текстовую интерпретацию результата.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 rounded-3xl bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.18),_transparent_52%),linear-gradient(135deg,#f8fafc,_#e2e8f0)] p-5 text-sm leading-7 text-slate-700">
+        <p class="font-semibold text-slate-900">Подсказка</p>
+        <p class="mt-2">Фон прозрачных PNG автоматически выравнивается в мягкий серый оттенок, чтобы линии теста оставались хорошо читаемыми.</p>
+      </div>
+    </aside>
+  </div>
+</div>

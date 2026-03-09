@@ -1,0 +1,136 @@
+<div class="flex h-full flex-col gap-4">
+  <section class="surface-panel flex-none p-3 md:p-4">
+    <div class="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
+      <div class="flex flex-wrap items-center gap-2 md:gap-3">
+        <button id="home-button" type="button" class="tool-button">
+          <i class="fas fa-house"></i>
+          <span>Главная</span>
+        </button>
+
+        <div class="toolbar-chip toolbar-chip-wide">
+          <span class="toolbar-label">Цвета</span>
+          <div id="color-palette" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <label class="toolbar-chip toolbar-chip-wide">
+          <span class="toolbar-label">Кисть</span>
+          <div class="flex min-w-[180px] items-center gap-3">
+            <input id="brush-size" class="accent-sky-500" type="range" min="4" max="48" step="2" value="18">
+            <span id="brush-size-value" class="w-10 text-right text-sm font-semibold text-slate-700">18</span>
+          </div>
+        </label>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 md:gap-3">
+        <div class="toolbar-chip">
+          <span class="toolbar-label">Поворот</span>
+          <div class="flex items-center gap-2">
+            <button id="rotate-left" type="button" class="icon-button" aria-label="Повернуть влево"><i class="fas fa-rotate-left"></i></button>
+            <span id="rotation-value" class="tool-value">0°</span>
+            <button id="rotate-right" type="button" class="icon-button" aria-label="Повернуть вправо"><i class="fas fa-rotate-right"></i></button>
+          </div>
+        </div>
+
+        <div class="toolbar-chip">
+          <span class="toolbar-label">Масштаб</span>
+          <div class="flex items-center gap-2">
+            <button id="zoom-out" type="button" class="icon-button" aria-label="Уменьшить"><i class="fas fa-magnifying-glass-minus"></i></button>
+            <span id="zoom-value" class="tool-value">100%</span>
+            <button id="zoom-in" type="button" class="icon-button" aria-label="Увеличить"><i class="fas fa-magnifying-glass-plus"></i></button>
+          </div>
+        </div>
+
+        <div class="toolbar-chip">
+          <span class="toolbar-label">История</span>
+          <div class="flex items-center gap-2">
+            <button id="undo-button" type="button" class="icon-button" aria-label="Отменить"><i class="fas fa-arrow-rotate-left"></i></button>
+            <button id="redo-button" type="button" class="icon-button" aria-label="Повторить"><i class="fas fa-arrow-rotate-right"></i></button>
+          </div>
+        </div>
+
+        <div class="toolbar-chip">
+          <span class="toolbar-label">Навигация</span>
+          <div class="flex items-center gap-2">
+            <button id="move-toggle" type="button" class="icon-button" aria-label="Режим перемещения"><i class="fas fa-hand"></i></button>
+            <button id="center-button" type="button" class="icon-button" aria-label="Центрировать"><i class="fas fa-crosshairs"></i></button>
+          </div>
+        </div>
+
+        <button id="clear-button" type="button" class="secondary-button">
+          <i class="fas fa-trash-can"></i>
+          <span>Очистить</span>
+        </button>
+        <button id="analyze-button" type="button" class="primary-button">
+          <i class="fas fa-chart-column"></i>
+          <span>Рассчитать</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid min-h-0 flex-1 gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
+    <div class="surface-panel min-h-0 p-4 md:p-5">
+      <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p id="selected-test-label" class="text-lg font-semibold text-slate-900">Тест не выбран</p>
+          <p class="text-sm text-slate-500">Используйте палитру для раскрашивания. Режим ладони отключает рисование и позволяет перемещать холст.</p>
+        </div>
+        <div class="flex items-center gap-3 text-sm text-slate-500">
+          <span class="rounded-full bg-slate-100 px-3 py-1">785 x 1080</span>
+          <span id="active-color-label" class="rounded-full bg-slate-100 px-3 py-1">Цвет: Красный</span>
+        </div>
+      </div>
+
+      <div class="canvas-workspace">
+        <div class="canvas-frame">
+          <canvas id="main-canvas" width="785" height="1080" aria-label="Холст для раскрашивания"></canvas>
+          <div id="canvas-loader" class="canvas-loader hidden">
+            <span class="loader-ring"></span>
+            <span class="text-sm font-semibold text-slate-700">Загрузка теста...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside id="results-panel" class="surface-panel results-panel hidden p-4 md:p-5">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <p class="eyebrow mb-2">Результаты анализа</p>
+          <h2 class="text-xl font-semibold text-slate-900">Цветовая интерпретация</h2>
+        </div>
+        <span id="results-status" class="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">готово</span>
+      </div>
+
+      <div class="mt-4 rounded-3xl border border-slate-200 bg-slate-50 p-3">
+        <img id="results-image" class="results-image" alt="Результат раскрашивания">
+      </div>
+
+      <div class="mt-4 space-y-4 overflow-y-auto pr-1" id="results-scroll-area">
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Распределение цветов</h3>
+          <div id="statistics-chart" class="mt-3 space-y-3"></div>
+        </div>
+
+        <div class="rounded-2xl bg-slate-50 p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Основная характеристика</h3>
+          <p id="result-main" class="mt-3 text-sm leading-7 text-slate-700"></p>
+        </div>
+
+        <div class="rounded-2xl bg-slate-50 p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Сильные стороны</h3>
+          <ul id="result-strengths" class="mt-3 space-y-2 text-sm leading-7 text-slate-700"></ul>
+        </div>
+
+        <div class="rounded-2xl bg-slate-50 p-4">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">Рекомендации</h3>
+          <ul id="result-recommendations" class="mt-3 space-y-2 text-sm leading-7 text-slate-700"></ul>
+        </div>
+      </div>
+
+      <button id="send-results-button" type="button" class="secondary-button mt-4 w-full justify-center">
+        <i class="fas fa-paper-plane"></i>
+        <span>Отправить результаты на почту</span>
+      </button>
+    </aside>
+  </section>
+</div>
